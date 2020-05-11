@@ -46,7 +46,7 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
       - name: Save DigitalOcean kubeconfig
-        run: doctl kubernetes cluster kubeconfig save actions-example-k8s-1-16
+        run: doctl kubernetes cluster kubeconfig save k8s-helloworld
 
       - name: Deploy to DigitalOcean Kubernetes
         run: kubectl apply -f $GITHUB_WORKSPACE/kube/deployment.yml
