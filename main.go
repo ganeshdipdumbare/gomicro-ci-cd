@@ -13,5 +13,5 @@ func main() {
 }
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hello world: %v", r.RemoteAddr)
+	fmt.Fprintf(w, "hello world testing CI/CD: %v", r.RemoteAddr)
 }
