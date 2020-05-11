@@ -50,6 +50,9 @@ jobs:
       - name: Save DigitalOcean kubeconfig
         run: doctl kubernetes cluster kubeconfig save k8s-helloworld
 
+      - name: Create A Secret
+        run: kubectl create secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=${{ github.actor }} --docker-password=${{ secrets.GHUB_PASSWORD }} --docker-email=${{ secrets.GHUB_EMAIL }} --dry-run=true -o yaml | kubectl apply -f -
+
       - name: Deploy to DigitalOcean Kubernetes
         run: kubectl apply -f $GITHUB_WORKSPACE/kube/deployment.yml
 

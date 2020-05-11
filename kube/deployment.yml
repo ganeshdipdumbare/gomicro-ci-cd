@@ -13,8 +13,10 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: helloworld:latest
+        image: docker.pkg.github.com/ganeshdipdumbare/e2e_template_golang/helloworld:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+          - name: regcred
 
