@@ -34,13 +34,14 @@ jobs:
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
 
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "master" ] && VERSION="${{ secrets.GITHUB_SHA }}"
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
 
           docker tag helloworld $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+          sed -i 's/HELLOWORLD_TAG/'"${{ secrets.GITHUB_SHA }}"'/g' $GITHUB_WORKSPACE/kube/deployment.yml
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
