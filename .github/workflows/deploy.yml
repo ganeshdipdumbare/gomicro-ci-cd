@@ -25,14 +25,14 @@ jobs:
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
 
           # Use Docker `latest` tag convention
-          VERSION=${{ secrets.GITHUB_RUN_NUMBER }}
+          VERSION=${{ github.GITHUB_SHA }}
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
 
           docker tag helloworld $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-          sed -i 's/HELLOWORLD_TAG/'"${{ secrets.GITHUB_RUN_NUMBER }}"'/g' $GITHUB_WORKSPACE/kube/deployment.yml
+          sed -i 's/HELLOWORLD_TAG/'"${{ github.GITHUB_SHA }}"'/g' $GITHUB_WORKSPACE/kube/deployment.yml
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
