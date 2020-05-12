@@ -20,17 +20,3 @@ func TestHelloWorld(t *testing.T) {
 		t.Fatalf("expected: %v, got: %v for error", http.StatusOK, resp.StatusCode)
 	}
 }
-
-func TestStartHttpServer(t *testing.T) {
-	go startHttpServer() // this will end as soon as program is stopped
-
-	resp, err := http.Get("http://localhost:8080/hello")
-	if err != nil {
-		t.Fatalf("expected: %v, got: %v for error", nil, err)
-	}
-
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		t.Fatalf("expected: %v, got: %v for error", http.StatusOK, resp.StatusCode)
-	}
-}
