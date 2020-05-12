@@ -1,4 +1,5 @@
-![Test, Deploy](https://github.com/ganeshdipdumbare/e2e_template_golang/workflows/Test,%20Deploy/badge.svg)
+![Test, Deploy](https://github.com/ganeshdipdumbare/e2e_template_golang/workflows/Test,%20Deploy/badge.svg) [![codecov](https://codecov.io/gh/ganeshdipdumbare/e2e_template_golang/branch/master/graph/badge.svg)](https://codecov.io/gh/ganeshdipdumbare/e2e_template_golang)
+
 # e2e_template_golang
 
 Simple project to demonstrate the end to end working code including CI/CD. 
