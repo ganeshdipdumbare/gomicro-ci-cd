@@ -33,6 +33,7 @@ jobs:
           docker tag helloworld $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
           sed -i 's/HELLOWORLD_TAG/'"$VERSION"'/g' $GITHUB_WORKSPACE/kube/deployment.yml
+          cat $GITHUB_WORKSPACE/kube/deployment.yml
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
