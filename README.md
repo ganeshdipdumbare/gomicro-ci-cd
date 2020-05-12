@@ -7,7 +7,7 @@ This is a simple http server written in Go. The main purpose of the project
 is to demonstrate the CI/CD capabilities using Github Actions.
 
 ## Description
-When the code changes are pushed to master, following processes are happened-
+    When the code changes are pushed to master, following processes are happened-
     - Server test on linux platform
     - Build docker image for the server
     - Push docker image to Github Registry with tag ```latest```
