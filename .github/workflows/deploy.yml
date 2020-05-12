@@ -25,14 +25,14 @@ jobs:
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
 
           # Use Docker `latest` tag convention
-          VERSION=$GITHUB_SHA
+          VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
 
           docker tag helloworld $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
-          sed -i 's/HELLOWORLD_TAG/'"$VERSION"'/g' $GITHUB_WORKSPACE/kube/deployment.yml
+          sed -i 's/GITHUB_SHA_ID/'"$GITHUB_SHA"'/g' $GITHUB_WORKSPACE/kube/deployment.yml
           cat $GITHUB_WORKSPACE/kube/deployment.yml
 
       - name: Install doctl
