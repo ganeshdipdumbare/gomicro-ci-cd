@@ -17,7 +17,7 @@ func main() {
 func startHttpServer() {
 	http.HandleFunc("/hello", helloWorld)
 
-	server := &http.Server{Addr: ":8080", Handler: nil}
+	server := &http.Server{Addr: "localhost:8080", Handler: nil}
 
 	go func() {
 		if err := server.ListenAndServe(); err != nil {
