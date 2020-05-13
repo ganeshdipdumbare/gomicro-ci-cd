@@ -17,8 +17,8 @@ When the code changes are pushed to master, following processes are happened-
 - Push docker image to Github Registry with tag ```latest```  
 - Connect to DigitalOcean service with ```doctl```  
 - Deploy the service with new docker image to k8s  
-- Check if the changes are working by calling the endpoint-  
-        [link] (http://159.65.104.97:30000/hello)
+- Check if the changes are working by openinf following link-  
+        [try it](http://159.65.104.97:30000/hello "call endpoint")
 
 ## Improvements
 
