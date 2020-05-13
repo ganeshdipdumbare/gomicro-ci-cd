@@ -18,8 +18,7 @@ When the code changes are pushed to master, following processes are happened-
 - Connect to DigitalOcean service with ```doctl```  
 - Deploy the service with new docker image to k8s  
 - Check if the changes are working by calling the endpoint-  
-
-        http://159.65.104.97:30000/hello
+        [link] (http://159.65.104.97:30000/hello)
 
 ## Improvements
 
