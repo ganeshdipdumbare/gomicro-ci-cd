@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"time"
 )
 
 func TestHelloWorld(t *testing.T) {
@@ -19,4 +20,20 @@ func TestHelloWorld(t *testing.T) {
 	if resp.StatusCode != http.StatusOK {
 		t.Fatalf("expected: %v, got: %v for error", http.StatusOK, resp.StatusCode)
 	}
+}
+
+func TestStartServer(t *testing.T) {
+	go startServer()
+	time.Sleep(time.Second * 2)
+
+	resp, err := http.Get("http://localhost:8080/hello")
+	if err != nil {
+		t.Fatalf("expected: %v, got: %v for error", nil, err)
+	}
+
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		t.Fatalf("expected: %v, got: %v for error", http.StatusOK, resp.StatusCode)
+	}
+
 }

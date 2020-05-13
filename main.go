@@ -11,6 +11,10 @@ import (
 )
 
 func main() {
+	startServer()
+}
+
+func startServer() {
 	http.HandleFunc("/hello", helloWorld)
 
 	server := &http.Server{Addr: ":8080", Handler: nil}
