@@ -40,5 +40,5 @@ func startServer() {
 }
 
 func helloWorld(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hello world: %v", r.RemoteAddr)
+	fmt.Fprintf(w, "hello world testing: %v", r.RemoteAddr)
 }
